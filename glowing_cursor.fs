@@ -14,9 +14,6 @@ void main()
     float offset = abs(sin(u_time * 15)) / 30.0;
     float cmin = 0.1  - offset;
     float cmax = 0.1  + offset;
-    if (len > cmin && len < cmax ) {
-        finalColor = vec4(1.0, 0.0, 0.0, 1.0);
-    } else {
-        finalColor = vec4(0.0, 0.0, 0.0, 1.0);
-    }
+    float v = step(cmin, len) * (1.0 - step(cmax, len));
+    finalColor = vec4(v, 0.0, 0.0, 1.0);
 }

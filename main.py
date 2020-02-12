@@ -8,11 +8,12 @@ W_WIDTH, W_HEIGHT = 800, 600
 
 pr.init_window(W_WIDTH, W_HEIGHT, b"Playing with shaders")
 pr.set_target_fps(60)
+pr.set_trace_log_level(pr.LOG_ERROR)
 blank = pr.gen_image_color(W_WIDTH, W_HEIGHT, WHITE)
 texture = pr.load_texture_from_image(blank)
 pr.unload_image(blank)
 
-shader = pr.load_shader(ffi.new("int *"), "glowing_cursor.fs")
+shader = pr.load_shader(ffi.new("int *"), "shifting_maze.fs")
 
 resolution = ffi.new("Vector2 *")
 resolution[0].x = W_WIDTH
